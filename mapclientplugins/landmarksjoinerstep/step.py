@@ -5,7 +5,7 @@ MAP Client Plugin Step
 
 from PySide import QtGui
 
-from mountpoints.workflowstep import WorkflowStepMountPoint
+from mapclient.mountpoints.workflowstep import WorkflowStepMountPoint
 
 
 class LandmarksJoinerStep(WorkflowStepMountPoint):
@@ -40,7 +40,7 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
         may be connected up to a button in a widget for example.
         '''
         # Put your execute step code here before calling the '_doneExecution' method.
-       self._landmarks1.update(self._landmarks2)
+        self._landmarks1.update(self._landmarks2)
         self._doneExecution()
 
     def setPortData(self, index, dataIn):
@@ -51,7 +51,7 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
         '''
         if index == 0:
             self._landmarks1 = dataIn # ju#landmarks
-        else index:
+        else:
             self._landmarks2 = dataIn # ju#landmarks
 
     def getPortData(self, index):
