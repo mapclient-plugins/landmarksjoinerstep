@@ -20,3 +20,4 @@ This file is part of MAP Client. (http://launchpad.net/mapclient)
 __version__ = '0.1.0'
 __author__ = 'Ju Zhang'
 from mapclientplugins.landmarksjoinerstep import step
+import mapclientplugins.landmarksjoinerstep.resources_rc
