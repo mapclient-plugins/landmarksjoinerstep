@@ -3,6 +3,7 @@
 MAP Client Plugin Step
 '''
 
+from PySide import QtGui
 from mapclient.mountpoints.workflowstep import WorkflowStepMountPoint
 
 class LandmarksJoinerStep(WorkflowStepMountPoint):
