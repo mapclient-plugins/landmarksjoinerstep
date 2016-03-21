@@ -4,9 +4,7 @@ MAP Client Plugin Step
 '''
 
 from PySide import QtGui
-
 from mapclient.mountpoints.workflowstep import WorkflowStepMountPoint
-
 
 class LandmarksJoinerStep(WorkflowStepMountPoint):
     '''
@@ -23,13 +21,13 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
         # Ports:
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#uses',
-                      'python#dict'))
+                      'http://physiomeproject.org/workflow/1.0/rdf-schema#landmarks'))
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#uses',
-                      'python#dict'))
+                      'http://physiomeproject.org/workflow/1.0/rdf-schema#landmarks'))
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#provides',
-                      'python#dict'))
+                      'http://physiomeproject.org/workflow/1.0/rdf-schema#landmarks'))
 
         self._landmarks1 = None
         self._landmarks2 = None
@@ -87,20 +85,15 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
 
     def serialize(self):
         '''
-        Add code to serialize this step to disk.  The filename should
-        use the step identifier (received from getIdentifier()) to keep it
-        unique within the workflow.  The suggested name for the file on
-        disk is:
-            filename = getIdentifier() + '.conf'
+        Add code to serialize this step to disk. Returns a json string for
+        mapclient to serialise.
         '''
         return ''
 
     def deserialize(self, string):
         '''
-        Add code to deserialize this step from disk.  As with the serialize 
-        method the filename should use the step identifier.  Obviously the 
-        filename used here should be the same as the one used by the
-        serialize method.
+        Add code to deserialize this step from disk. Parses a json string
+        given by mapclient
         '''
         pass
 
