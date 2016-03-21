@@ -85,7 +85,7 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
         '''
         pass # TODO: Must actually set the step's identifier here
 
-    def serialize(self, location):
+    def serialize(self):
         '''
         Add code to serialize this step to disk.  The filename should
         use the step identifier (received from getIdentifier()) to keep it
@@ -93,9 +93,9 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
         disk is:
             filename = getIdentifier() + '.conf'
         '''
-        pass
+        return ''
 
-    def deserialize(self, location):
+    def deserialize(self, string):
         '''
         Add code to deserialize this step from disk.  As with the serialize 
         method the filename should use the step identifier.  Obviously the 
