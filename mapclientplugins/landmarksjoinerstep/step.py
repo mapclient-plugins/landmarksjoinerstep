@@ -1,10 +1,10 @@
-
 '''
 MAP Client Plugin Step
 '''
 
-from PySide import QtGui
+from PySide2 import QtGui
 from mapclient.mountpoints.workflowstep import WorkflowStepMountPoint
+
 
 class LandmarksJoinerStep(WorkflowStepMountPoint):
     '''
@@ -14,7 +14,7 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
 
     def __init__(self, location):
         super(LandmarksJoinerStep, self).__init__('Landmarks Joiner', location)
-        self._configured = True # A step cannot be executed until it has been configured.
+        self._configured = True  # A step cannot be executed until it has been configured.
         self._category = 'Anthropometry'
         # Add any other initialisation code here:
         self._icon = QtGui.QImage(':/landmarksjoinerstep/images/landmarksjoinericon.png')
@@ -49,9 +49,9 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
         uses port for this step then the index can be ignored.
         '''
         if index == 0:
-            self._landmarks1 = dataIn # ju#landmarks
+            self._landmarks1 = dataIn  # ju#landmarks
         else:
-            self._landmarks2 = dataIn # ju#landmarks
+            self._landmarks2 = dataIn  # ju#landmarks
 
     def getPortData(self, index):
         '''
@@ -59,7 +59,7 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
         The index is the index of the port in the port list.  If there is only one
         provides port for this step then the index can be ignored.
         '''
-        return self._landmarks1 # ju#landmarks
+        return self._landmarks1  # ju#landmarks
 
     def configure(self):
         '''
@@ -75,13 +75,13 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
         '''
         The identifier is a string that must be unique within a workflow.
         '''
-        return 'LandmarkJoiner' # TODO: The string must be replaced with the step's unique identifier
+        return 'LandmarkJoiner'  # TODO: The string must be replaced with the step's unique identifier
 
     def setIdentifier(self, identifier):
         '''
         The framework will set the identifier for this step when it is loaded.
         '''
-        pass # TODO: Must actually set the step's identifier here
+        pass  # TODO: Must actually set the step's identifier here
 
     def serialize(self):
         '''
@@ -96,4 +96,3 @@ class LandmarksJoinerStep(WorkflowStepMountPoint):
         given by mapclient
         '''
         pass
-
